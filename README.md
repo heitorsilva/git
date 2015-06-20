@@ -2,6 +2,6 @@
 
 My configurations.
 
-Heitor Silva
-http://www.heitorsilva.com/
+Heitor Silva<br>
+http://www.heitorsilva.com/<br>
 http://blog.heitorsilva.com/
