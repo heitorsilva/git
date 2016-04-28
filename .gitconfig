@@ -17,3 +17,5 @@
         rebase = true
 [core]
         fileMode = false
+        autocrlf = false
+        whitespace = cr-at-eol
