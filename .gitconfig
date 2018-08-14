@@ -12,6 +12,7 @@
         sglog = log --decorate --graph --date=relative --pretty=\"format:%C(yellow)%h%C(auto)%d%Creset %s %C(bold blue)[%ad by %an]\"
         slog = log --decorate --date=relative --pretty=\"format:%C(yellow)%h%C(auto)%d%C(reset) %s %C(bold blue)[%ad by %an]\"
         count = shortlog -s -n --all
+        delete-gone-branches = "!git fetch -p && for branch in `git branch -vv | awk '{print $1, $4}' | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
 [branch]
         autosetuprebase = always
 [branch "master"]
