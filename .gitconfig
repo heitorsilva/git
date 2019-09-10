@@ -11,8 +11,10 @@
         nlog = log --stat --pretty=\"format:%C(yellow)commit %H%C(auto)%d%n%C(bold red)Author: %an <%ae>%n%C(bold blue)Date: %ad%C(reset)%n%n%s%n\"
         sglog = log --decorate --graph --date=relative --pretty=\"format:%C(yellow)%h%C(auto)%d%Creset %s %C(bold blue)[%ad by %an]\"
         slog = log --decorate --date=relative --pretty=\"format:%C(yellow)%h%C(auto)%d%C(reset) %s %C(bold blue)[%ad by %an]\"
+        change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
         count = shortlog -s -n --all
         delete-gone-branches = "!git fetch -p && for branch in `git branch -vv | awk '{print $1, $4}' | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
+	pushf = push --force-with-lease
 [branch]
         autosetuprebase = always
 [branch "master"]
