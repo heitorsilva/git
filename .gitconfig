@@ -11,6 +11,7 @@
         count = shortlog -s -n --all
         delete-gone-branches = "!git fetch -p && for branch in `git branch -vv | awk '{print $1, $4}' | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
         pushf = push --force-with-lease
+	upd = "!git fetch && git pull && git delete-gone-branches"
 [color]
 	branch = auto
         diff = auto
