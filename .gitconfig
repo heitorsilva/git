@@ -1,46 +1,46 @@
 [user]
 	name = Heitor Silva
 [alias]
-        dglog = log --decorate --graph --date=local --pretty=\"format:%C(yellow)%h%C(auto)%d%Creset %s %C(bold blue)[%ad by %an]\"
-        dlog = log --decorate --date=local --pretty=\"format:%C(yellow)%h%C(auto)%d%C(reset) %s %C(bold blue)[%ad by %an]\"
-        glog = log --decorate --graph
-        nlog = log --stat --pretty=\"format:%C(yellow)commit %H%C(auto)%d%n%C(bold red)Author: %an <%ae>%n%C(bold blue)Date: %ad%C(reset)%n%n%s%n\"
-        sglog = log --decorate --graph --date=relative --pretty=\"format:%C(yellow)%h%C(auto)%d%Creset %s %C(bold blue)[%ad by %an]\"
+	dglog = log --decorate --graph --date=local --pretty=\"format:%C(yellow)%h%C(auto)%d%Creset %s %C(bold blue)[%ad by %an]\"
+	dlog = log --decorate --date=local --pretty=\"format:%C(yellow)%h%C(auto)%d%C(reset) %s %C(bold blue)[%ad by %an]\"
+	glog = log --decorate --graph
+	nlog = log --stat --pretty=\"format:%C(yellow)commit %H%C(auto)%d%n%C(bold red)Author: %an <%ae>%n%C(bold blue)Date: %ad%C(reset)%n%n%s%n\"
+	sglog = log --decorate --graph --date=relative --pretty=\"format:%C(yellow)%h%C(auto)%d%Creset %s %C(bold blue)[%ad by %an]\"
 	slog = log --decorate --date=relative --pretty=\"format:%C(yellow)%h%C(auto)%d%C(reset) %s %C(bold blue)[%ad by %an]\"
-        change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
-        count = shortlog -s -n --all
-        delete-gone-branches = "!git fetch -p && for branch in `git branch -vv | awk '{print $1, $4}' | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+	count = shortlog -s -n --all
+	delete-gone-branches = "!git fetch -p && for branch in `git branch -vv | awk '{print $1, $4}' | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
 	delete-local-branches = "!git branch -l | grep -v 'master\\|main\\|develop' | xargs git branch -D"
-        pushf = push --force-with-lease
+	pushf = push --force-with-lease
 	upd = "!git fetch && git pull && git delete-gone-branches"
-        updmn = "!git fetch && git pull origin main && git delete-gone-branches"
+	updmn = "!git fetch && git pull origin main && git delete-gone-branches"
 	updms = "!git fetch && git pull origin master && git delete-gone-branches"
 [color]
 	branch = auto
-        diff = auto
-        status = auto
+	diff = auto
+	status = auto
 [core]
 	autocrlf = false
-        fileMode = false
+	fileMode = false
 	whitespace = cr-at-eol
-        excludesFile = "~/.gitignore"
+	excludesFile = "~/.gitignore"
 [filter "lfs"]
-        clean = git-lfs clean -- %f
-        smudge = git-lfs smudge -- %f
-        process = git-lfs filter-process
-        required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [help]
-        autocorrect = 1 # Correct command line typo automatically
+	autocorrect = 1 # Correct command line typo automatically
 [init]
-        defaultBranch = main
+	defaultBranch = main
 [merge]
-        ff = false # Always create a merge commit, making it easier to roll back if needed
-        log = 1000 # Include "all" commits in message for clarity
+	ff = false # Always create a merge commit, making it easier to roll back if needed
+	log = 1000 # Include "all" commits in message for clarity
 [mergetool]
-        keepBackup = false
+	keepBackup = false
 [pull]
-        rebase = true # Avoid dealing with commits like: "Merge branch 'dev' of bla bla to 'main'
+	rebase = true # Avoid dealing with commits like: "Merge branch 'dev' of bla bla to 'main'
 [push]
-        default = current # Simplyfy "git push" command
+	default = current # Simplyfy "git push" command
 [rebase]
-        autoStash = true # Allow rebasing while having unstaged changes
+	autoStash = true # Allow rebasing while having unstaged changes
